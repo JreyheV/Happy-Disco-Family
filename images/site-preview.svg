@@ -18,8 +18,12 @@
     <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%">
       <feDropShadow dx="0" dy="22" stdDeviation="24" flood-color="#ff82aa" flood-opacity="0.17"/>
     </filter>
+    <clipPath id="rounded-canvas">
+      <rect x="64" y="32" width="1500" height="746" rx="28"/>
+    </clipPath>
   </defs>
 
+  <g clip-path="url(#rounded-canvas)">
   <rect width="1628" height="810" fill="url(#background)"/>
   <circle cx="1180" cy="240" r="330" fill="#ff82aa" opacity="0.13" filter="url(#blur)"/>
   <circle cx="360" cy="760" r="280" fill="#ff82aa" opacity="0.09" filter="url(#blur)"/>
@@ -38,6 +42,8 @@
     </g>
 
     <text x="814" y="759" text-anchor="middle" fill="#333333" font-size="9" font-weight="700" letter-spacing="3">SCROLL TO EXPLORE</text>
+  </g>
+
   </g>
 
 </svg>
