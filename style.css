@@ -2625,9 +2625,59 @@ to {
 МОБИЛЬНАЯ ВЕРСИЯ
 ========================================================= */
 
-@media (max-width: 800px) {
+@media (pointer: coarse) {
 body {
     overflow-x: hidden;
+}
+
+.flip-card {
+    height: auto;
+    aspect-ratio: 3 / 5;
+    min-width: 0;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+.flip-card-inner {
+    transform: none !important;
+}
+
+.flip-card.is-flipped .flip-card-inner {
+    transform: none !important;
+}
+
+.flip-card-front {
+    display: none;
+}
+
+.flip-card-back {
+    position: relative;
+    transform: none !important;
+    transform-style: flat;
+    backface-visibility: visible;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.site-link-button,
+.flip-card,
+.flip-card-back {
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.site-link-button:focus,
+.site-link-button:active,
+.flip-card:focus,
+.flip-card:active {
+    outline: none;
+}
+
+.archive-template-card .flip-card-back {
+    outline: none;
 }
 
 .navbar {
@@ -3007,7 +3057,7 @@ footer {
 
 }
 
-@media (max-width: 480px) {
+@media (pointer: coarse) and (max-width: 480px) {
 .navbar {
     height: 72px;
 }
