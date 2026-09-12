@@ -1821,6 +1821,7 @@ gap: 20px;
     height: 300px;
     cursor: pointer;
     outline: none;
+    touch-action: manipulation;
     transition: transform 0.3s ease, filter 0.3s ease;
 }
 
@@ -1986,6 +1987,7 @@ gap: 20px;
     font-weight: 700;
     letter-spacing: 1.5px;
     text-decoration: none;
+    touch-action: manipulation;
     transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
 }
 
