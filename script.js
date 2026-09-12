@@ -484,7 +484,15 @@ flipCards.forEach((card) => {
         card.classList.toggle("is-flipped");
     };
 
+    const isSiteLinkTarget = (target) => {
+        return target && target.closest && target.closest(".site-link-button");
+    };
+
     const handleCardClick = (event) => {
+        if (isSiteLinkTarget(event.target)) {
+            return;
+        }
+
         const redirectUrl = card.dataset.link;
 
         if (redirectUrl) {
@@ -501,6 +509,11 @@ flipCards.forEach((card) => {
     card.addEventListener("keydown", (event) => {
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
+
+            if (isSiteLinkTarget(event.target)) {
+                return;
+            }
+
             handleCardClick(event);
         }
     });
