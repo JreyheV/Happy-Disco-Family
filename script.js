@@ -433,11 +433,11 @@ if (particlesContainer) {
    МОБИЛЬНЫЕ УСТРОЙСТВА
 ========================= */
 
-if (window.matchMedia("(max-width: 800px)").matches) {
+if (window.matchMedia("(pointer: coarse)").matches) {
 
     /*
-       На телефоне мыши нет,
-       поэтому убираем лишнее движение.
+       На сенсорных устройствах, планшетах и телефонах
+       убираем лишнее движение.
     */
 
     heroContent.style.transform =
@@ -488,7 +488,19 @@ flipCards.forEach((card) => {
         return target && target.closest && target.closest(".site-link-button");
     };
 
+    const isTouchDevice = () => {
+        return window.matchMedia("(pointer: coarse)").matches;
+    };
+
+    const isDesktop = () => {
+        return window.matchMedia("(pointer: fine)").matches;
+    };
+
     const handleCardClick = (event) => {
+        if (!isDesktop()) {
+            return;
+        }
+
         if (isSiteLinkTarget(event.target)) {
             return;
         }
@@ -507,6 +519,10 @@ flipCards.forEach((card) => {
     card.addEventListener("click", handleCardClick);
 
     card.addEventListener("keydown", (event) => {
+        if (!isDesktop()) {
+            return;
+        }
+
         if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
 
